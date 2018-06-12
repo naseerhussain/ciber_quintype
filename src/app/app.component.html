@@ -1,6 +1,7 @@
 <div class="container">
   <div class="table-container">
     <span> Score = {{score}}</span>
+    <button class="btn btn-sm btn-outline-secondary pull-right" (click)="ngOnInit()">Reset Game</button>
     <table class="table table-bordered">
       <tbody>
         <tr *ngFor="let item of arr;let i=index">
