@@ -18,13 +18,19 @@ export class AppComponent {
     this.arr = this.getArray();
   }
 
-  clicked(row,col){
+  clicked(row,col,itemRow){
         let x = this.arr[row][col]
         if(x.diamond){
           this.correct += 1;
           x.image1 = true;
         }else{
           x.image2 = true;
+          for(let a=0;a<itemRow.length;a++){
+            if(itemRow[a].diamond){
+              this.arr[row][a-1].image3 = true;
+            }
+          }
+
         }
         this.arr[row][col] = x;
         this.total += 1;
@@ -48,13 +54,15 @@ export class AppComponent {
         obj={
           diamond:true,
           image1:false,
-          image2:false
+          image2:false,
+          image3:false
         };
       }else{
         obj = {
           diamond:false,
           image1:false,
-          image2:false
+          image2:false,
+          image3:false
         };
       }
       arr.push(obj);

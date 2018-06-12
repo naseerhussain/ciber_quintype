@@ -4,7 +4,7 @@
     <table class="table table-bordered">
       <tbody>
         <tr *ngFor="let item of arr;let i=index">
-          <td *ngFor="let x of item;let j=index;" (click)="clicked(i,j,x)"><div class="img"><img src="./assets/question.png" *ngIf="x.image2"/><img src="./assets/diamond.png" *ngIf="x.image1"/></div></td>
+          <td *ngFor="let x of item;let j=index;" (click)="clicked(i,j,item)"><div class="img"><img src="./assets/question.png" *ngIf="x.image2"/><img src="./assets/diamond.png" *ngIf="x.image1"/><img src="./assets/arrow.png" *ngIf="x.image3"/></div></td>
         </tr>
       </tbody>
     </table>
