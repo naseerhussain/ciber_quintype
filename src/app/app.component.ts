@@ -19,7 +19,8 @@ export class AppComponent {
   }
 
   clicked(row,col,itemRow){
-        let x = this.arr[row][col]
+        let x = this.arr[row][col];
+        this.hideArrows();
         if(x.diamond){
           this.correct += 1;
           x.image1 = true;
@@ -27,7 +28,12 @@ export class AppComponent {
           x.image2 = true;
           for(let a=0;a<itemRow.length;a++){
             if(itemRow[a].diamond){
-              this.arr[row][a-1].image3 = true;
+              console.log(this.arr[row][a-1]);
+              if(a == 0 && row!=0){
+                this.arr[row-1][7].image3 = true;
+              }else{
+                this.arr[row][a-1].image3 = true;
+              }
             }
           }
 
@@ -35,6 +41,14 @@ export class AppComponent {
         this.arr[row][col] = x;
         this.total += 1;
         this.score = 64- this.total
+  }
+
+  hideArrows(){
+    for(let a=0;a<8;a++){
+      for(let b=0;b<8;b++){
+          this.arr[a][b].image3 = false;
+      }
+    }
   }
 
   getArray(){
