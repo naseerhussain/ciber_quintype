@@ -21,7 +21,7 @@ export class AppComponent {
   clicked(row,col,itemRow){
         let x = this.arr[row][col];
         this.hideArrows();
-        if(x.diamond){
+        if(x.diamond && !x.image1){
           this.correct += 1;
           x.image1 = true;
           x.image2 = false;
