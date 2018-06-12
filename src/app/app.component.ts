@@ -24,15 +24,18 @@ export class AppComponent {
         if(x.diamond){
           this.correct += 1;
           x.image1 = true;
+          x.image2 = false;
         }else{
-          x.image2 = true;
+          x.image2 = false;
           for(let a=0;a<itemRow.length;a++){
             if(itemRow[a].diamond){
               console.log(this.arr[row][a-1]);
               if(a == 0 && row!=0){
                 this.arr[row-1][7].image3 = true;
+                //this.arr[row-1][7].image2 = false;
               }else{
                 this.arr[row][a-1].image3 = true;
+                //this.arr[row][a-1].image2 = false;
               }
             }
           }
@@ -46,7 +49,7 @@ export class AppComponent {
   hideArrows(){
     for(let a=0;a<8;a++){
       for(let b=0;b<8;b++){
-          this.arr[a][b].image3 = false;
+        this.arr[a][b].image3 = false;
       }
     }
   }
@@ -68,14 +71,14 @@ export class AppComponent {
         obj={
           diamond:true,
           image1:false,
-          image2:false,
+          image2:true,
           image3:false
         };
       }else{
         obj = {
           diamond:false,
           image1:false,
-          image2:false,
+          image2:true,
           image3:false
         };
       }
